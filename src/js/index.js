@@ -45,7 +45,7 @@ function Choice(Message){
     }
 
     InitialHTML+= '<body class="text-center">'
-    InitialHTML+= '<h1>Pick your Level</h1>'
+    InitialHTML+= "<p>To play the game use the arrow keys to move the green ball. You need to use it to guide the blue balls to knock out all of the bricks at the top of the screen. If a blue ball hits the bottom of the screen you lose a life. If all five lives are lost, you lose the game.</p>"
     if(Message == null){ //if this is the first time playing the game since page loaded
         InitialHTML+= 'Name: <input type="text" id="InpName" value="' + cookies["name"] + '"><p></p>'; //allows the user to input their name
     }else{
@@ -57,6 +57,8 @@ function Choice(Message){
             document.getElementById("Block" + x).innerHTML.style = "";// erases all the blocks
         }
     }
+    InitialHTML+= '<h1>Pick your Level</h1>'
+    InitialHTML+= '<p>Click the button for the level you want to play. If you beat the latest level, you gain access to the next level to play</p>'
     for(var x = 1; x < parseInt(cookies["Level"]); x++){ //iterates through all the levels before your current level
         InitialHTML+= '<button type="button" class="btn btn-info" onclick="window.Start(' + x + ')">Level ' + x + '</button> You achieved the highest score of ' + parseInt(cookies[x] / 10000) + '<p></p>'; //displays button for level selection
     }
